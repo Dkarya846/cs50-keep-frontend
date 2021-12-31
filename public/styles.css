@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background: #eee;
+}
+
+header {
+  background-color: #a51c30;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 18%;
+}
+
+header h1 {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-size: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: #ccc;
+}
+
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  height: calc(100% - 64px);
+}
+
+.formContainer > img,
+.formContainer > form {
+  width: 50%;
+  max-width: 450px;
+}
+
+.primary-buttton {
+  color: #fff !important;
+  background: #a51c30 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a51c30;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    flex-direction: column;
+  }
+
+  .formContainer > img,
+  .formContainer > form {
+    width: 80%;
+  }
+}
