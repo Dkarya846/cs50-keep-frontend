@@ -61,7 +61,10 @@ const Home = (props) => {
       const updatedNote = await notesService.updateNotes(newNote);
       setOpen(false);
       const index = notes.findIndex((note) => note._id === updatedNote._id);
-      notes[index] = updatedNote;
+
+      const updatedNotes = [...notes];
+      updatedNotes[index] = updatedNote;
+      setNotes([...updatedNotes]);
       toast.success("Note Updated");
     } catch (ex) {
       if (ex.response && ex.response.status >= 400 && ex.response.status <= 500)
@@ -75,19 +78,32 @@ const Home = (props) => {
       <Main>
         <Navbar user={user} setUser={setUser} />
         <NotesContainer>
-          {notes.map((note) => (
-            <Note
-              key={note._id}
-              note={note}
-              onClick={() => {
-                setSelectedNote(note);
-                setOpen(true);
+          {notes.length === 0 ? (
+            <h3
+              style={{
+                display: "flex",
+                height: "calc(100vh - 128px)",
+                alignItems: "center",
+                textAlign: "center",
+                color: "#777777",
               }}
-              handleDelete={handleDelete}
-            />
-          ))}
+            >
+              There are no note saved currently. Click '+' to add notes.
+            </h3>
+          ) : (
+            notes.map((note) => (
+              <Note
+                key={note._id}
+                note={note}
+                onClick={() => {
+                  setSelectedNote(note);
+                  setOpen(true);
+                }}
+                handleDelete={handleDelete}
+              />
+            ))
+          )}
         </NotesContainer>
-
         {selectedNote && (
           <EditNote
             note={selectedNote}
@@ -97,14 +113,12 @@ const Home = (props) => {
             setIsOpen={setOpen}
           />
         )}
-
         <AddNoteButton
           handleClick={() => {
             setSelectedNote({ title: "", content: "" });
             setAddNote(true);
           }}
         />
-
         {addNote && (
           <AddNote
             note={newNote}

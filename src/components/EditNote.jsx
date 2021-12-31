@@ -2,18 +2,18 @@ import { Backdrop, Box, Fade, Modal, Alert } from "@mui/material";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Joi from "joi";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 900,
-  height: 560,
+  width: 700,
+  height: 500,
   display: "flex",
   alignItems: "center",
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
@@ -67,6 +67,16 @@ const EditNote = (props) => {
     >
       <Fade in={isOpen}>
         <Box sx={style}>
+          <CloseIcon
+            onClick={handleClose}
+            style={{
+              position: "absolute",
+              top: "1rem",
+              right: "1rem",
+              cursor: "pointer",
+            }}
+          />
+
           <Form onSubmit={handleSubmit} style={{ width: "100%" }}>
             {error && (
               <Alert
@@ -98,6 +108,7 @@ const EditNote = (props) => {
                 onChange={handleChange}
                 name="content"
                 placeholder="Enter Content"
+                style={{ resize: "none" }}
               />
             </Form.Group>
             <Form.Group className="mb-3">
