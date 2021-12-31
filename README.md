@@ -1,11 +1,10 @@
-# CS50 Keep
+# CS50 Keep Frontend
 
-#### Video Demo:  [Youtube](https://www.youtube.com/watch?v=srFfbNWzmw4)
+## Running Project
 
-#### Description:
-- This is CS50x Final project. 
-- CS50 Keep is a note taking web app which allows user to add, delete and update notes right through their browser.
-- This project is created using MERN Stack.
+In the project directory, you can run:
 
+### `npm start`
 
-<!-- URL: [CS50-Frontend](Todo) -->
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
